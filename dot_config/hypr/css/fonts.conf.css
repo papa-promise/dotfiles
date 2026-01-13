@@ -1,0 +1,9 @@
+* {
+  font-family: "SF Pro Display", sans-serif !important;
+  font-feature-settings: "liga", "calt";
+}
+.subtitle, .caption, .subtitles, .secondary-text {
+  font-family: "SF Pro Display", sans-serif !important;
+  font-size: 11px;
+  opacity: 0.9;
+}

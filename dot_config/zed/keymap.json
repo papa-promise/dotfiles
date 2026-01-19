@@ -23,21 +23,13 @@
       "q": "git_panel::Close",
     },
   },
-  {
-    "context": "AgentPanel",
-    "bindings": {
-      "ctrl-\\": "workspace::ToggleRightDock",
-      "cmd-k": "workspace::ToggleRightDock",
-    },
-  },
   // File panel (netrw)
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
-      "a": "project_panel::NewFile",
-      "A": "project_panel::NewDirectory",
+      "d": "project_panel::NewDirectory",
       "r": "project_panel::Rename",
-      "d": "project_panel::Delete",
+      "shift d": "project_panel::Delete",
       "x": "project_panel::Cut",
       "c": "project_panel::Copy",
       "p": "project_panel::Paste",
@@ -73,16 +65,17 @@
       // New file
       "space f n": "workspace::NewFile",
       // Open recent project
-      "space f p": "projects::OpenRecent",
+      "space r p": "projects::OpenRecent",
       // Search in all the files
-      "space s g": "workspace::NewSearch",
+      "space /": "workspace::NewSearch",
       // Quit zed
-      "space q q": "zed::Quit",
     },
   },
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
+      // harpoon-like tab pin toggle
+      "space t p": "pane::TogglePinTab",
       // Refactoring
       "space r": "editor::Rename",
       // Chat with AI
@@ -93,13 +86,6 @@
       // "ctrl-l": "assistant::InlineAssist",
       // "space a t": "workspace::ToggleRightDock",
       // Git
-      "space g g": [
-        "task::Spawn",
-        {
-          "task_name": "lazygit",
-          "reveal_target": "center",
-        },
-      ],
       "space g h d": "editor::ExpandAllDiffHunks",
       "space g h D": "git::Diff",
       "space g h r": "git::Restore",
@@ -111,8 +97,6 @@
       // Open markdown preview
       "space m p": "markdown::OpenPreview",
       "space m P": "markdown::OpenPreviewToTheSide",
-      // Open recent project
-      "space f p": "projects::OpenRecent",
       // Search word under cursor in current pane
       "space s w": "buffer_search::Deploy",
       // Search word under cursor in all panes
@@ -164,8 +148,6 @@
       "space space": "file_finder::Toggle",
       // Quit zed
       //"space q q": "zed::Quit",
-      // Terminal
-      "space t": "workspace::ToggleBottomDock",
       // Windows management
       "space w s": "pane::SplitDown",
       "space w v": "pane::SplitRight",
@@ -202,9 +184,10 @@
     "bindings": {
       "ctrl-d": ["workspace::SendKeystrokes", "ctrl-d z z"],
       "ctrl-u": ["workspace::SendKeystrokes", "ctrl-u z z"],
-      "n": ["workspace::SendKeystrokes", "n z z"],
-      "shift-n": ["workspace::SendKeystrokes", "shift-n z z z v"],
       "shift-g": ["workspace::SendKeystrokes", "shift-g z z z v"],
+      // TODO: visual mode auto activation idk why
+      "n": "search::SelectNextMatch",
+      "shift-n": "search::SelectPreviousMatch",
       "g r": "editor::FindAllReferences",
       "g d": "editor::GoToDefinition",
       "g D": "editor::GoToDeclaration",
@@ -255,6 +238,32 @@
       "space d": ["workspace::SendKeystrokes", "\" _ d"],
       // paste over selection without overwriting registers
       "space p": ["workspace::SendKeystrokes", "\" _ d shift-p"],
+    },
+  },
+  // fix open file on ctrl-o
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "ctrl-o": "pane::GoBack",
+      "ctrl-i": "pane::GoForward",
+    },
+  },
+  {
+    "context": "ProjectPanel || Terminal || AgentPanel || Dock",
+    "bindings": {
+      "space c": "workspace::CloseActiveDock",
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // Toggle docks / panels
+      "space o t": "workspace::ToggleBottomDock",
+      "space o e": "project_panel::ToggleFocus", // left dock (file tree / project panel)
+      "space o g": "git_panel::ToggleFocus", // git panel
+      "space o a": "agent::ToggleFocus", // right dock (agents)
+      // Projects (project switcher / recent projects)
+      "space o p": "projects::OpenRecent",
     },
   },
 ]

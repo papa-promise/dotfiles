@@ -3,3 +3,8 @@
     url = "https://github.com/alacritty/alacritty-theme.git"
     refreshPeriod = "1000h"
 
+[".tmux/plugins/tpm"]
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tpm"
+    refreshPeriod = "168h"
+

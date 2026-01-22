@@ -1,0 +1,13 @@
+# remove title bar
+default_border pixel 2
+# yellow border for active window
+client.focused #e9b143ff #e9b143ff #e9b143ff #e9b143ff
+client.focused_inactive #595959aa #595959aa #595959aa #595959aa
+client.unfocused #595959aa #595959aa #595959aa #595959aa
+client.urgent #595959aa #595959aa #595959aa #595959aa
+
+gaps inner 3
+gaps outer 1
+
+output * bg ~/Pictures/bg.png fill
+

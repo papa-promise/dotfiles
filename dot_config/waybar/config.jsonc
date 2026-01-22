@@ -1,7 +1,7 @@
 // -*- mode: jsonc -*-
 {
   // "layer": "top", // Waybar at top layer
-  // "position": "bottom", // Waybar position (top|bottom|left|right)
+  "position": "bottom", // Waybar position (top|bottom|left|right)
   "height": 20, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
   "spacing": 4, // Gaps between modules (4px)
@@ -12,20 +12,18 @@
     "sway/scratchpad"
   ],
   "modules-center": [
-    "sway/window"
+    "clock"
   ],
   "modules-right": [
-    "idle_inhibitor",
     "pulseaudio",
     "network",
-    "power-profiles-daemon",
+    // "power-profiles-daemon",
     "cpu",
     "memory",
-    "temperature",
+    // "temperature",
     "backlight",
     "sway/language",
     "battery",
-    "clock",
     "tray"
   ],
   // Modules configuration
@@ -102,7 +100,7 @@
   },
   "tray": {
     // "icon-size": 21,
-    "spacing": 10,
+    "spacing": 10
     // "icons": {
     //   "blueman": "bluetooth",
     //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
@@ -111,14 +109,14 @@
   "clock": {
     // "timezone": "America/New_York",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}"
+    "format": "{:%d  -  %H:%M}"
   },
   "cpu": {
     "format": "{usage}% ",
     "tooltip": false
   },
   "memory": {
-    "format": "{}% "
+    "format": "RAM:[ {used:0.1f}GB / {total:0.1f}GB ]"
   },
   "temperature": {
     // "thermal-zone": 2,

@@ -1,0 +1,15 @@
+set $mod Mod4
+floating_modifier $mod
+
+# for default sway idle
+set $lock_timeout 0
+set $screen_timeout 0
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term alacritty
+set $launcher vicinae
+

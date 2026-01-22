@@ -1,0 +1,16 @@
+
+exec /usr/libexec/sway-systemd/session.sh
+
+exec_always vicinae server
+
+# TMUX first start for session restore
+exec_always tmux new-session -d -A -s main
+
+# agent for root(apps may get root from it by asking for pwd)
+exec /usr/libexec/lxqt-policykit-agent
+
+
+# sway portal fixer 
+exec /usr/libexec/sway-systemd/session.sh
+# thingies for memory-group assignment and making priority so sway will not be killed due to memory(it will pick some other process)
+exec /usr/libexec/sway-systemd/assign-cgroups.py

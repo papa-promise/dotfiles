@@ -1,0 +1,11 @@
+# should be above stupid sway defaults because they use constants
+include ~/.config/sway/constants
+# shit from default config(recommended to keep)
+include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+include ~/.config/sway/keymaps
+include ~/.config/sway/autostart
+include ~/.config/sway/gui
+include ~/.config/sway/behavior
+include ~/.config/sway/monitors
+include ~/.config/sway/input
+

@@ -1,0 +1,28 @@
+set $ws_web     "1"
+set $ws_web     "1"
+set $ws_term    "2"
+set $ws_notes   "3"
+set $ws_chatgpt "9"
+set $ws_teams   "10"
+
+workspace $ws_web     output DP-3
+workspace $ws_term    output DP-3
+workspace $ws_notes   output DP-3
+workspace $ws_chatgpt output DP-3
+workspace $ws_teams   output DP-3
+
+assign [app_id="^google-chrome$"] workspace $ws_web
+assign [app_id="^Alacritty$"] workspace $ws_term
+assign [app_id="^obsidian$"] workspace $ws_notes
+assign [sandbox_engine="^org\\.flatpak$" sandbox_app_id="^md\\.obsidian\\.Obsidian$"] workspace $ws_notes
+
+assign [app_id="^chrome-.*" title="(?i)^ChatGPT(\\b|\\s|$)"] workspace $ws_chatgpt
+assign [app_id="^chrome-.*" title="(?i)^(VK\\s+)?Teams(\\b|\\s|$)"] workspace $ws_teams
+
+for_window [app_id="^chrome-.*" title="(?i)^Mail(\\b|\\s|$)"] move to scratchpad
+
+assign [class="^Google-chrome$"] workspace $ws_web
+assign [class="^Alacritty$"] workspace $ws_term
+assign [class="^obsidian$"] workspace $ws_notes
+assign [class="^md\\.obsidian\\.Obsidian$"] workspace $ws_notes
+

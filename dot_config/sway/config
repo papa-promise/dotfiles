@@ -8,4 +8,4 @@ include ~/.config/sway/gui
 include ~/.config/sway/behavior
 include ~/.config/sway/monitors
 include ~/.config/sway/input
-
+include ~/.config/sway/workspaces
